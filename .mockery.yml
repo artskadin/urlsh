@@ -1,0 +1,19 @@
+all: false
+dir: '{{.InterfaceDir}}'
+filename: mocks_test.go
+force-file-write: true
+formatter: goimports
+log-level: info
+structname: '{{.InterfaceName}}'
+pkgname: '{{.SrcPackageName}}'
+recursive: false
+require-template-schema-exists: true
+template: testify
+template-schema: '{{.Template}}.schema.json'
+packages:
+  urlsh/internal/http-server/handlers/url/save:
+    config:
+      all: true
+      pkgname: 'mocks'
+      dir: '{{.InterfaceDir}}/mocks'
+      filename: '{{.InterfaceName}}.go'
