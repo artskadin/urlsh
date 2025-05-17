@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HOST: root@87.228.89.172
-      DEPLOY_DIRECTORY: /root/apps/url-shortener
-      CONFIG_PATH: /root/apps/url-shortener/config/prod.yaml
-      ENV_FILE_PATH: /root/apps/url-shortener/config.env
+      DEPLOY_DIRECTORY: /root/apps/urlsh
+      CONFIG_PATH: /root/apps/urlsh/config/prod.yaml
+      ENV_FILE_PATH: /root/apps/urlsh/config.env
 
     steps:
       - name: Checkout repository
@@ -35,7 +35,7 @@ jobs:
       - name: Build app
         run: |
           go mod download
-          go build -o url-shortener ./cmd/url-shortener
+          go build -o urlsh ./cmd/urlsh
       - name: Deploy to VM
         run: |
           sudo apt-get install -y ssh rsync
