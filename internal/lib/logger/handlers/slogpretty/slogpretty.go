@@ -17,7 +17,7 @@ type PrettyHandlerOptions struct {
 type PrettyHandler struct {
 	opts PrettyHandlerOptions
 	slog.Handler
-	l *stdLog.Logger
+	l     *stdLog.Logger
 	attrs []slog.Attr
 }
 
@@ -26,7 +26,7 @@ func (opts PrettyHandlerOptions) NewPrettyHandler(
 ) *PrettyHandler {
 	h := &PrettyHandler{
 		Handler: slog.NewJSONHandler(out, opts.SlogOpts),
-		l : stdLog.New(out, "", 0),
+		l:       stdLog.New(out, "", 0),
 	}
 
 	return h
@@ -84,14 +84,14 @@ func (h *PrettyHandler) Handle(_ context.Context, r slog.Record) error {
 func (h *PrettyHandler) WithAttrs(attrs []slog.Attr) slog.Handler {
 	return &PrettyHandler{
 		Handler: h.Handler,
-		l: h.l,
-		attrs: attrs,
+		l:       h.l,
+		attrs:   attrs,
 	}
 }
 
-func (h * PrettyHandler) WithGroup(name string) slog.Handler {
+func (h *PrettyHandler) WithGroup(name string) slog.Handler {
 	return &PrettyHandler{
 		Handler: h.Handler.WithGroup(name),
-		l: h.l,
+		l:       h.l,
 	}
 }

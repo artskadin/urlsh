@@ -9,7 +9,7 @@ func NewDiscardLogger() *slog.Logger {
 	return slog.New(NewDiscardHandler())
 }
 
-type DiscardHandler struct {}
+type DiscardHandler struct{}
 
 func NewDiscardHandler() *DiscardHandler {
 	return &DiscardHandler{}
