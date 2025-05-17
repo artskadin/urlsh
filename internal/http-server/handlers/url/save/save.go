@@ -15,7 +15,7 @@ import (
 )
 
 type Request struct {
-	URL string `json:"url" validate:"required,url"`
+	URL   string `json:"url" validate:"required,url"`
 	Alias string `json:"alias,omitempty"`
 }
 
@@ -93,6 +93,6 @@ func New(log *slog.Logger, urlSaver URLSaver) http.HandlerFunc {
 func ResponseOk(w http.ResponseWriter, r *http.Request, alias string) {
 	render.JSON(w, r, Response{
 		Response: resp.OK(),
-		Alias: alias,
+		Alias:    alias,
 	})
 }

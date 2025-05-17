@@ -15,16 +15,16 @@ import (
 
 func TestRedirectHandler(t *testing.T) {
 	cases := []struct {
-		name string
-		alias string
-		url string
+		name      string
+		alias     string
+		url       string
 		respError string
 		mockError error
 	}{
 		{
-			name: "Success",
+			name:  "Success",
 			alias: "test_alias",
-			url: "https://www.ya.ru/",
+			url:   "https://www.ya.ru/",
 		},
 	}
 

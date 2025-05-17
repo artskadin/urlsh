@@ -9,11 +9,11 @@ import (
 
 type Response struct {
 	Status string `json:"status"`
-	Error string `json:"error,omitempty"`
+	Error  string `json:"error,omitempty"`
 }
 
 const (
-	StatusOK = "OK"
+	StatusOK    = "OK"
 	StatusError = "Error"
 )
 
@@ -26,7 +26,7 @@ func OK() Response {
 func Error(msg string) Response {
 	return Response{
 		Status: StatusError,
-		Error: msg,
+		Error:  msg,
 	}
 }
 
@@ -38,7 +38,7 @@ func ValidationError(errs validator.ValidationErrors) Response {
 		case "required":
 			errMsgs = append(errMsgs, fmt.Sprintf("field %s is required field", err.Field()))
 		case "url":
-			errMsgs = append(errMsgs, fmt.Sprintf("field %s is not valid URL", err.Field()))
+			errMsgs = append(errMsgs, fmt.Sprintf("field %s is not a valid URL", err.Field()))
 		default:
 			errMsgs = append(errMsgs, fmt.Sprintf("field %s is not valid", err.Field()))
 		}
@@ -46,6 +46,6 @@ func ValidationError(errs validator.ValidationErrors) Response {
 
 	return Response{
 		Status: StatusError,
-		Error: strings.Join(errMsgs, ", "),
+		Error:  strings.Join(errMsgs, ", "),
 	}
 }
