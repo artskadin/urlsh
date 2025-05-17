@@ -17,39 +17,39 @@ import (
 )
 
 func TestSaveHand(t *testing.T) {
-	cases := []struct{
-		name string
-		alias string
-		url string
+	cases := []struct {
+		name      string
+		alias     string
+		url       string
 		respError string
 		mockError error
 	}{
 		{
-			name: "Success",
+			name:  "Success",
 			alias: "test_alias",
-			url: "https://google.com",
+			url:   "https://google.com",
 		},
 		{
-			name: "Empty alias",
+			name:  "Empty alias",
 			alias: "",
-			url: "https://google.com",
+			url:   "https://google.com",
 		},
 		{
-			name: "Empty URL",
-			alias: "some_alias",
-			url: "",
+			name:      "Empty URL",
+			alias:     "some_alias",
+			url:       "",
 			respError: "field URL is required field",
 		},
 		{
-			name: "invalid URL",
-			alias: "some_alias",
-			url: "invalid url",
-			respError: "field URL is not valid URL",
+			name:      "invalid URL",
+			alias:     "some_alias",
+			url:       "invalid url",
+			respError: "field URL is not a valid URL",
 		},
 		{
-			name: "SaveURL Error",
-			alias: "test_alias",
-			url: "https://google.com",
+			name:      "SaveURL Error",
+			alias:     "test_alias",
+			url:       "https://google.com",
 			respError: "failed to add url",
 			mockError: errors.New("unexpected error"),
 		},
