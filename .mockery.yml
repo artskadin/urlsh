@@ -17,3 +17,9 @@ packages:
       pkgname: 'mocks'
       dir: '{{.InterfaceDir}}/mocks'
       filename: '{{.InterfaceName}}.go'
+  urlsh/internal/http-server/handlers/url/redirect:
+    config:
+      all: true
+      pkgname: 'mocks'
+      dir: '{{.InterfaceDir}}/mocks'
+      filename: '{{.InterfaceName}}.go'
